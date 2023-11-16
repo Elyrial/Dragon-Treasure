@@ -8,6 +8,7 @@ public class Room {
     }
 
     public void doNarrative() {
-        
+        // ny branch
+        // ännu en ny line
     }
 }
