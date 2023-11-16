@@ -7,7 +7,7 @@ public class Room {
         this.doors = new Door[4];
     }
 
-public void doNarrative() {
-    // first commit
-    // second commit
-} 
+    public void doNarrative() {
+        
+    }
+}
