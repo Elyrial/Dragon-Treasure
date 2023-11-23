@@ -1,24 +1,33 @@
-public class DragonTreasure {
-private Room[][] rooms;
-    
-    // setupGame metod, här skapas rum och dörrar, kallar på den från Room klassen
-    public void setupGame() {
-        rooms = new Room[3][3];
-        // private Room[][] rooms = new Room [3][3];
-        rooms[0][0] = new Room("Rum 1");
-        rooms[0][1] = new Room("Rum 2");
-        rooms[0][2] = new Room("Rum 3");
-        rooms[1][0] = new Room("Rum 4");
-        rooms[1][1] = new Room("Rum 5");
-        rooms[1][2] = new Room("Rum 6");
-        rooms[2][0] = new Room("Rum 7");
-        rooms[2][1] = new Room("Rum 8");
-        rooms[2][2] = new Room("Rum 9");
-        
-    }
-    
-    // endGame metod, exit spelet
-    public void endGame() {
-    }
+// DragonTreasure klassen
+import java.util.Scanner;
 
+public class DragonTreasure {	
+	public static void main(String[] args) {
+	 setupGame(); // Spelets start
+	 
+	}
+	
+	// Välkommnar spelaren & ber om deras namn input
+	public static void setupGame() {
+		Scanner input = new Scanner(System.in);
+		System.out.println("Välkommen till Dragon Treasure\n" + "Skriv ditt namn och tryck på [Enter] för att starta ett nytt spel...");
+		Player spelareNamn = new Player(input.nextLine());
+	
+	// Skapar Dungeon för spelet & ger förklaring om spelet
+    Dungeon dungeon = new Dungeon();
+    System.out.println("Välkommen " + spelareNamn.getName() + " till din skattejakt. " + "Du står utanför en grotta. Det luktar svavel från öppningen. " + "Grottöppningen är norr. Skriv \"n\" och tryck på [Enter] för att komma in i grottan.");
+   
+    // Ber spelaren om input för att starta spelet, startar enbart om spelaren matar in "n" 
+    String användareInput;
+    do {
+    	användareInput = input.nextLine().toLowerCase(); // Omvandlar inputen till lowercase
+        if (!användareInput.equals("n")) {
+            System.out.println("Du måste skriva 'n' för att komma in i grottan. Försök igen."); // Ber om rätt input
+        }
+    } while (!användareInput.equals("n"));
+    dungeon.playGame(); // Startar spelet
+    
+    input.close(); // Stänger Scanner input
+    
+    }
 }
