@@ -1,7 +1,9 @@
+// Klassen är gjord som en textfil för tillfället
+
 public class Door {
     private int position;
     private boolean locked;
-    
+
     public Door(int position, boolean locked) {
         this.position = position;
         this.locked = locked;
